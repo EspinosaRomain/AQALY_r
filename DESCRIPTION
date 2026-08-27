@@ -1,0 +1,23 @@
+Package: AQALY
+Title: Compute Animal Quality-Adjusted Life Year (AQALY) Scores
+Version: 0.1.0
+Authors@R: 
+    person("Romain", "", , "your.email@example.com", role = c("aut", "cre"))
+Description: Computes Animal Quality-Adjusted Life Year (AQALY) scores and
+    their standard errors from a four-digit welfare state code, using
+    parameter estimates from a mixed logit model fitted on stated
+    preference data. Standard errors are obtained via the delta method.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    msm,
+    stats,
+    utils
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Depends: 
+    R (>= 3.5)
