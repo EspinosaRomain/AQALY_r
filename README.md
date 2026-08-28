@@ -67,9 +67,15 @@ AQALYscore(welfare_state_funct = "5979", number_years_funct = 45 / 365.25) -
   AQALYscore(welfare_state_funct = "7979", number_years_funct = 30 / 365.25)
 ```
 
+The 95% confidence interval for the baseline scenario:
+
+```r
+AQALYscore(welfare_state_funct = "7979", number_years_funct = 30 / 365.25, alpha_level = 0.05)
+```
+
 ## Data
 
 The package ships with `estimatesAQALY`, the mixed logit estimation
 results (coefficients and variance-covariance matrix) fitted on the
-combined UK replicate data. See `?estimatesAQALY` for details, and see
+combined UK data. See `?estimatesAQALY` for details, and see
 the associated paper for the estimation procedure.
