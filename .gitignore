@@ -5,3 +5,8 @@
 *.Rproj
 inst/doc
 .DS_Store
+
+# Raw source data: prepare_data.R stays tracked, but the RDS itself
+# (already reflected in data/estimatesAQALY.rda) is not pushed to GitHub.
+data-raw/*.RDS
+data-raw/*.rds
