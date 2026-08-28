@@ -9,7 +9,7 @@ method (`msm::deltamethod()`).
 
 ```r
 # install.packages("remotes")
-remotes::install_github("your-github-username/AQALY_r")
+remotes::install_github("EspinosaRomain/AQALY_r")
 ```
 
 Note: the GitHub repository is named `AQALY_r`, but the installed R package
