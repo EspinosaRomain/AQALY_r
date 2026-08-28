@@ -5,24 +5,42 @@
 \title{Instantaneous AQALY score for a welfare state}
 \usage{
 InstantAQALYscore(
-  welfare_state_funct,
-  results_mixedlogit_funct = estimatesAQALY
+  welfare_state,
+  alpha_level = NULL,
+  results_mixedlogit = estimatesAQALY
 )
 }
 \arguments{
-\item{welfare_state_funct}{Character string of four digits (each between
+\item{welfare_state}{Character string of four digits (each between
 1 and 9) describing the welfare state to evaluate on the four
 dimensions, e.g. \code{"1359"}. \code{1} denotes the most positive level on a
-dimension.}
+dimension. Each digit corresponds to one of the following levels:
+\itemize{
+\item 1 - High-level positive experiences
+\item 2 - Significant positive experiences
+\item 3 - Mild positive experiences
+\item 4 - Minor positive experiences
+\item 5 - Neutral: negative and positive experiences compensate
+\item 6 - Minor negative experiences
+\item 7 - Mild negative experiences
+\item 8 - Severe negative experiences
+\item 9 - Very severe negative experiences
+}}
 
-\item{results_mixedlogit_funct}{A fitted mixed logit results object
-(as returned by \code{\link[logitr:logitr]{logitr::logitr()}}) containing \code{coefficients} and
-\code{vcov} elements. Defaults to the package's bundled estimates
+\item{alpha_level}{Numeric between 0 and 1, or \code{NULL} (the
+default). The significance level used to compute a confidence
+interval around the score via the delta method, e.g. \code{0.05} for a
+95\% confidence interval. If \code{NULL}, no interval is computed.}
+
+\item{results_mixedlogit}{An object containing \code{coefficients} and
+\code{vcov} elements from a mixed logit estimation (e.g. via the
+\pkg{logitr} package). Defaults to the package's bundled estimates
 (\code{estimatesAQALY}), fitted on UK stated-preference data.}
 }
 \value{
 A list with elements \code{score} (numeric) and \code{se} (numeric, its
-standard error).
+standard error). If \code{alpha_level} is specified, the list also
+includes \code{lower_bound} and \code{upper_bound}.
 }
 \description{
 Computes the estimated welfare score (and its standard error, via the

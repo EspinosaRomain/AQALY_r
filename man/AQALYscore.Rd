@@ -4,18 +4,36 @@
 \alias{AQALYscore}
 \title{AQALY score over a period of time}
 \usage{
-AQALYscore(welfare_state_funct, number_years_funct)
+AQALYscore(welfare_state, number_years, alpha_level = NULL)
 }
 \arguments{
-\item{welfare_state_funct}{Character string of four digits (each between
-1 and 9) describing the welfare state to evaluate, e.g. \code{"7979"}.}
+\item{welfare_state}{Character string of four digits (each between
+1 and 9) describing the welfare state to evaluate, e.g. \code{"7979"}. Each
+digit corresponds to one of the following levels:
+\itemize{
+\item 1 - High-level positive experiences
+\item 2 - Significant positive experiences
+\item 3 - Mild positive experiences
+\item 4 - Minor positive experiences
+\item 5 - Neutral: negative and positive experiences compensate
+\item 6 - Minor negative experiences
+\item 7 - Mild negative experiences
+\item 8 - Severe negative experiences
+\item 9 - Very severe negative experiences
+}}
 
-\item{number_years_funct}{Numeric. Number of years (or fraction of a
+\item{number_years}{Numeric. Number of years (or fraction of a
 year, e.g. \code{30/365} for 30 days) spent in that welfare state.}
+
+\item{alpha_level}{Numeric between 0 and 1, or \code{NULL} (the
+default). The significance level used to compute a confidence
+interval around the score via the delta method, e.g. \code{0.05} for a
+95\% confidence interval. If \code{NULL}, no interval is computed.}
 }
 \value{
 A list with elements \code{score} (the AQALY score) and \code{se} (its
-standard error).
+standard error). If \code{alpha_level} is specified, the list also
+includes \code{lower_bound} and \code{upper_bound}.
 }
 \description{
 Computes the Animal Quality-Adjusted Life Year (AQALY) score, and its
@@ -23,5 +41,5 @@ standard error, associated with spending a given number of years in a
 specified welfare state, relative to a perfect welfare state.
 }
 \examples{
-AQALYscore(welfare_state_funct = "7979", number_years_funct = 30 / 365)
+AQALYscore(welfare_state = "7979", number_years = 30 / 365)
 }

@@ -24,6 +24,49 @@ library(AQALY)
 AQALYscore(welfare_state_funct = "7979", number_years_funct = 30 / 365)
 ```
 
+`welfare_state_funct` is a four-digit string (each digit between 1 and 9),
+one digit per welfare dimension, in this order: **Nutrition**,
+**Environment**, **Health**, **Behavioral Interactions**. Each digit
+corresponds to one of the following levels:
+
+* 1 - High-level positive experiences
+* 2 - Significant positive experiences
+* 3 - Mild positive experiences
+* 4 - Minor positive experiences
+* 5 - Neutral: negative and positive experiences compensate
+* 6 - Minor negative experiences
+* 7 - Mild negative experiences
+* 8 - Severe negative experiences
+* 9 - Very severe negative experiences
+
+`number_years_funct` is the duration spent in that welfare state by the
+animal, expressed in number of years (e.g. `30 / 365.25` for 30 days).
+
+### Examples
+
+The welfare of an animal who has "Mild negative experiences" for Nutrition
+and Health, and "Very severe negative experiences" for Environment and
+Behavioral Interactions, during 30 days:
+
+```r
+AQALYscore(welfare_state_funct = "7979", number_years_funct = 30 / 365.25)
+```
+
+The welfare change when Nutrition improves to Neutral:
+
+```r
+AQALYscore(welfare_state_funct = "5979", number_years_funct = 30 / 365.25) -
+  AQALYscore(welfare_state_funct = "7979", number_years_funct = 30 / 365.25)
+```
+
+The welfare change when Nutrition improves to Neutral and lifetime
+increases to 45 days:
+
+```r
+AQALYscore(welfare_state_funct = "5979", number_years_funct = 45 / 365.25) -
+  AQALYscore(welfare_state_funct = "7979", number_years_funct = 30 / 365.25)
+```
+
 ## Data
 
 The package ships with `estimatesAQALY`, the mixed logit estimation
