@@ -21,10 +21,10 @@ is still called `AQALY` — after installing, load it as usual with
 ```r
 library(AQALY)
 
-AQALYscore(welfare_state_funct = "7979", number_years_funct = 30 / 365)
+AQALYscore(welfare_state = "7979", number_years = 30 / 365)
 ```
 
-`welfare_state_funct` is a four-digit string (each digit between 1 and 9),
+`welfare_state` is a four-digit string (each digit between 1 and 9),
 one digit per welfare dimension, in this order: **Nutrition**,
 **Environment**, **Health**, **Behavioral Interactions**. Each digit
 corresponds to one of the following levels:
@@ -39,7 +39,7 @@ corresponds to one of the following levels:
 * 8 - Severe negative experiences
 * 9 - Very severe negative experiences
 
-`number_years_funct` is the duration spent in that welfare state by the
+`number_years` is the duration spent in that welfare state by the
 animal, expressed in number of years (e.g. `30 / 365.25` for 30 days).
 
 ### Examples
@@ -49,28 +49,28 @@ and Health, and "Very severe negative experiences" for Environment and
 Behavioral Interactions, during 30 days:
 
 ```r
-AQALYscore(welfare_state_funct = "7979", number_years_funct = 30 / 365.25)
+AQALYscore(welfare_state = "7979", number_years = 30 / 365.25)
 ```
 
 The welfare change when Nutrition improves to Neutral:
 
 ```r
-AQALYscore(welfare_state_funct = "5979", number_years_funct = 30 / 365.25) -
-  AQALYscore(welfare_state_funct = "7979", number_years_funct = 30 / 365.25)
+AQALYscore(welfare_state = "5979", number_years = 30 / 365.25) -
+  AQALYscore(welfare_state = "7979", number_years = 30 / 365.25)
 ```
 
 The welfare change when Nutrition improves to Neutral and lifetime
 increases to 45 days:
 
 ```r
-AQALYscore(welfare_state_funct = "5979", number_years_funct = 45 / 365.25) -
-  AQALYscore(welfare_state_funct = "7979", number_years_funct = 30 / 365.25)
+AQALYscore(welfare_state = "5979", number_years = 45 / 365.25) -
+  AQALYscore(welfare_state = "7979", number_years = 30 / 365.25)
 ```
 
 The 95% confidence interval for the baseline scenario:
 
 ```r
-AQALYscore(welfare_state_funct = "7979", number_years_funct = 30 / 365.25, alpha_level = 0.05)
+AQALYscore(welfare_state = "7979", number_years = 30 / 365.25, alpha_level = 0.05)
 ```
 
 ## Data
